@@ -1,0 +1,107 @@
+MainWindow {
+    background-color: #13232f;
+}
+
+QTextBrowser#textBrowser {
+    background-color: #1f3a4e;
+    color: white;
+    padding-top: 0px;
+    padding-bottom: 0px;
+}
+
+QLineEdit#msgLineEdit {
+    border-radius: 3px;
+    height: 30px;
+    background-color: #1f3a4e;
+    color: white;
+    padding-left: 4px;
+}
+
+QLineEdit#msgLineEdit[text=""] {
+    color: #b2b2b2;
+}
+
+QPushButton#sendButton {
+    border: 1px;
+    background: #1ab188;
+    border-radius: 3px;
+    height: 30px;
+    width: 100px;
+    color: white;
+}
+
+QPushButton#sendButton:hover {
+    background: #18a881;
+}
+
+QStatusBar {
+    font-size: 10pt;
+    color: red;
+}
+
+
+/*  SCROLL BAR VERTICAL */
+QScrollBar:vertical {
+    border: none;
+    background: #1f3a4e;
+    width: 14px;
+    margin: 15px 0 15px 0;
+    border-radius: 0px;
+}
+
+/*  HANDLE BAR VERTICAL */
+QScrollBar::handle:vertical {
+    background-color: #2a4f6a;
+    min-height: 30px;
+    border-radius: 7px;
+}
+
+QScrollBar::handle:vertical:hover{
+    background-color: #1ab188;
+}
+QScrollBar::handle:vertical:pressed {
+    background-color: #18a881;
+}
+
+/* BTN TOP - SCROLLBAR */
+QScrollBar::sub-line:vertical {
+    border: none;
+    background-color: #2a4f6a;
+    height: 15px;
+    border-top-left-radius: 7px;
+    border-top-right-radius: 7px;
+    subcontrol-position: top;
+    subcontrol-origin: margin;
+}
+QScrollBar::sub-line:vertical:hover {
+    background-color: #1ab188;
+}
+QScrollBar::sub-line:vertical:pressed {
+    background-color: #18a881;
+}
+
+/* BTN BOTTOM - SCROLLBAR */
+QScrollBar::add-line:vertical {
+    border: none;
+    background-color: #2a4f6a;
+    height: 15px;
+    border-bottom-left-radius: 7px;
+    border-bottom-right-radius: 7px;
+    subcontrol-position: bottom;
+    subcontrol-origin: margin;
+}
+QScrollBar::add-line:vertical:hover {
+    background-color: #1ab188;
+}
+QScrollBar::add-line:vertical:pressed {
+    background-color: #18a881;
+}
+
+/* RESET ARROW */
+QScrollBar::up-arrow:vertical, QScrollBar::down-arrow:vertical {
+    background: none;
+}
+
+QScrollBar::add-page:vertical, QScrollBar::sub-page:vertical {
+    background: none;
+}

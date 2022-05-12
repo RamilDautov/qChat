@@ -1,0 +1,35 @@
+ConnectWindow {
+    background-color: #13232f;
+    width: 100%;
+    height: 100%;
+}
+
+QLabel#welcomeLabel {
+    color: white;
+    padding-left: 8px;
+}
+
+QLineEdit#nameLineEdit {
+    border-radius: 3px;
+    height: 30px;
+    background-color: #1f3a4e;
+    color: white;
+    padding-left: 4px;
+}
+
+QLineEdit#nameLineEdit[text=""] {
+    color: #b2b2b2;
+}
+
+QPushButton#connectButton {
+    border: 1px;
+    background: #1ab188;
+    border-radius: 3px;
+    height: 30px;
+    width: 100px;
+    color: white;
+}
+
+QPushButton#connectButton:hover {
+    background: #18a881;
+}

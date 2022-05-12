@@ -1,0 +1,7 @@
+<RCC>
+    <qresource prefix="/">
+        <file>styles/connectwindow.css</file>
+        <file>styles/mainwindow.css</file>
+        <file>styles/titlebar.css</file>
+    </qresource>
+</RCC>
