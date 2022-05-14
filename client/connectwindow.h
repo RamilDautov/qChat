@@ -2,7 +2,6 @@
 #define CONNECTWINDOW_H
 
 #include <QWidget>
-#include "mainwindow.h"
 #include "titlebar.h"
 
 namespace Ui {
@@ -19,8 +18,6 @@ public:
     explicit ConnectWindow(QWidget *parent = nullptr);
     ~ConnectWindow();
 
-    MainWindow *getMainWindow() const { return m_mainWindow; };
-
     void paintEvent(QPaintEvent *);
 
     template<typename Func>
@@ -31,11 +28,7 @@ public:
 
 private:
     Ui::ConnectWindow *ui;
-    MainWindow *m_mainWindow;
     connect_func m_connect;
-
-//signals:
-    //void connected();
 
 private slots:
     void on_connectButton_clicked();

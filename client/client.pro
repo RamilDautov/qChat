@@ -9,21 +9,19 @@ CONFIG += c++17
 #DEFINES += QT_DISABLE_DEPRECATED_BEFORE=0x060000    # disables all the APIs deprecated before Qt 6.0.0
 
 SOURCES += \
+    chatwindow.cpp \
     connectwindow.cpp \
-    frame.cpp \
     main.cpp \
-    mainwindow.cpp \
     titlebar.cpp
 
 HEADERS += \
+    chatwindow.h \
     connectwindow.h \
-    frame.h \
-    mainwindow.h \
     titlebar.h
 
 FORMS += \
-    connectwindow.ui \
-    mainwindow.ui
+    chatwindow.ui \
+    connectwindow.ui
 
 # Default rules for deployment.
 qnx: target.path = /tmp/$${TARGET}/bin

@@ -7,5 +7,6 @@ int main(int argc, char *argv[])
     Server s;
     s.connectToDatabase();
     s.addChatHistoryTable();
+    s.clearChatHistory();
     return a.exec();
 }

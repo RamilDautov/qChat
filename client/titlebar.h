@@ -7,7 +7,7 @@ class TitleBar : public QWidget
 {
     Q_OBJECT
 public:
-    TitleBar(QWidget *parent);
+    TitleBar(QWidget *parent, bool withMaximize);
 
     void paintEvent(QPaintEvent *);
 
@@ -18,6 +18,7 @@ public slots:
 protected:
     void mousePressEvent(QMouseEvent *me);
     void mouseMoveEvent(QMouseEvent *me);
+    void mouseReleaseEvent(QMouseEvent *e);
 
 private:
     QToolButton *minimize;
@@ -27,6 +28,10 @@ private:
     bool maxNormal;
     QPoint startPos;
     QPoint clickPos;
+
+    QPoint m_old_pos;
+    bool m_mouse_down;
+    bool left, right, top, bottom;
 };
 
 #endif // TITLEBAR_H

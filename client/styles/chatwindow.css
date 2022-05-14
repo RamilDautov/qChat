@@ -1,4 +1,4 @@
-MainWindow {
+ChatWindow {
     background-color: #13232f;
 }
 
@@ -7,6 +7,9 @@ QTextBrowser#textBrowser {
     color: white;
     padding-top: 0px;
     padding-bottom: 0px;
+    margin-left: 10px;
+    margin-right: 10px;
+    margin-bottom: 5px;
 }
 
 QLineEdit#msgLineEdit {
