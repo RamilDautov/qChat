@@ -8,6 +8,10 @@ TitleBar QLabel {
     font-size: 12;
 }
 
+#winIcon {
+    margin-right: 10px;
+}
+
 #minimizeButton, #maximizeButton, #closeButton{
     background-color: #1ab188;
     color: white;

@@ -21,7 +21,7 @@ void Server::connectToDatabase()
 {
     m_msgHistoryDB = QSqlDatabase::addDatabase("QSQLITE");
 
-    QString pathToDB = QString("D:\\Documents\\Chat\\server\\db\\chathistorydb.sqlite");
+    QString pathToDB = QString("chathistorydb.sqlite");
     m_msgHistoryDB.setDatabaseName(pathToDB);
 
     QFileInfo checkFile(pathToDB);

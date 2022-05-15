@@ -1,4 +1,5 @@
 #include "connectwindow.h"
+#include "titlebar.h"
 #include "ui_connectwindow.h"
 #include <QFile>
 
@@ -23,7 +24,22 @@ ConnectWindow::ConnectWindow(QWidget *parent) :
     QString css = readTextFile("://styles/connectwindow.css");
     this->setStyleSheet(css);
 
+    // Make this a borderless window which can't
+    // be resized or moved via the window system
+    setWindowFlags(Qt::FramelessWindowHint);
+    setMouseTracking(true);
+
+    TitleBar *titleBar = new TitleBar(this, false);
+    titleBar->setObjectName("titleBar");
+
     ui->setupUi(this);
+
+    ui->verticalLayout->setContentsMargins(0,0,0,15);
+
+    ui->verticalLayout->insertWidget(0, titleBar);
+
+    QPixmap logo("://images/qChat.png");
+    ui->logoLabel->setPixmap(logo.scaled(200, 200, Qt::IgnoreAspectRatio, Qt::SmoothTransformation));
 
     // change color of placeholder
     connect(ui->nameLineEdit, &QLineEdit::textChanged, [=]{ style()->polish(ui->nameLineEdit); });
@@ -31,9 +47,6 @@ ConnectWindow::ConnectWindow(QWidget *parent) :
 
 ConnectWindow::~ConnectWindow()
 {
-    if(!m_mainWindow)
-        delete m_mainWindow;
-
     delete ui;
 }
 
@@ -48,10 +61,6 @@ void ConnectWindow::paintEvent(QPaintEvent *)
 
 void ConnectWindow::on_connectButton_clicked()
 {
-    ui->welcomeLabel->setText("connecting...");
-    ui->welcomeLabel->repaint();
-    ui->nameLineEdit->setDisabled(true);
-
     QString userName = ui->nameLineEdit->text();
 
     if(userName.size() == 0)
@@ -61,6 +70,15 @@ void ConnectWindow::on_connectButton_clicked()
         return;
     }
 
+    QFont font = ui->welcomeLabel->font();
+    font.setPointSize(14);
+    ui->welcomeLabel->setFont(font);
+
+    ui->welcomeLabel->setText("connecting...");
+    ui->welcomeLabel->repaint();
+    ui->nameLineEdit->setEnabled(false);
+    ui->connectButton->setEnabled(false);
+
     QTime dieTime= QTime::currentTime().addSecs(3);
 
     bool success = false;
@@ -69,6 +87,15 @@ void ConnectWindow::on_connectButton_clicked()
 
     if(!success)
     {
-        ui->welcomeLabel->setText("No response from server.\nCheck your internet connection and try again");
+        QFont font = ui->welcomeLabel->font();
+        font.setPointSize(10);
+        ui->welcomeLabel->setFont(font);
+        ui->welcomeLabel->setText("No response from server.\nCheck your internet connection\nand try again...");
+        ui->nameLineEdit->setEnabled(true);
+        ui->connectButton->setEnabled(true);
+    }
+    else
+    {
+        this->hide();
     }
 }

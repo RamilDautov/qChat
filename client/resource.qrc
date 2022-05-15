@@ -1,7 +1,9 @@
 <RCC>
     <qresource prefix="/">
         <file>styles/connectwindow.css</file>
-        <file>styles/mainwindow.css</file>
+        <file>styles/chatwindow.css</file>
         <file>styles/titlebar.css</file>
+        <file>images/qChat.png</file>
+        <file>images/icon.png</file>
     </qresource>
 </RCC>
