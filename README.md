@@ -2,6 +2,8 @@
 
 Simple client/server chat app with messages history saved in SQLite database.
 
+Assets for Windows and Linux can be downloaded from [here](https://github.com/RamilDautov/qChat/releases/tag/v1.0.0)
+
 ## How to use
 
 Database with chat history should be placed near server executable file. Or you can change path to the database in `server/server.cpp`:
