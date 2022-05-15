@@ -64,7 +64,7 @@ void Server::sendChatHistoryToUser(QTcpSocket *socket)
         {
             m_data.clear();
             QDataStream out(&m_data, QIODevice::WriteOnly);
-            out.setVersion(QDataStream::Qt_6_0);
+            out.setVersion(QDataStream::Qt_5_9);
             out << quint16(0) << queryChat.value(2).toString() << queryChat.value(0).toString() << queryChat.value(1).toString();
             out.device()->seek(0);
             out << quint16(m_data.size() - sizeof (quint16));
@@ -115,7 +115,7 @@ void Server::slotReadyRead()
 {
     m_socket = (QTcpSocket*)sender();
     QDataStream in(m_socket);
-    in.setVersion(QDataStream::Qt_6_0);
+    in.setVersion(QDataStream::Qt_5_9);
 
     if(in.status() == QDataStream::Ok)
     {
@@ -160,7 +160,7 @@ void Server::sendToClient(const QString& time, const QString& msg, const QString
 {
     m_data.clear();
     QDataStream out(&m_data, QIODevice::WriteOnly);
-    out.setVersion(QDataStream::Qt_6_0);
+    out.setVersion(QDataStream::Qt_5_9);
     out << quint16(0) << time << msg << userName;
     out.device()->seek(0);
     out << quint16(m_data.size() - sizeof (quint16));

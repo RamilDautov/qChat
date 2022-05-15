@@ -90,7 +90,7 @@ void ChatWindow::sendToServer(const QString &msg)
 
     m_data.clear();
     QDataStream out(&m_data, QIODevice::WriteOnly);
-    out.setVersion(QDataStream::Qt_6_0);
+    out.setVersion(QDataStream::Qt_5_9);
 
     out << quint16(0) << QTime::currentTime().toString() << msg << m_userName;
     out.device()->seek(0);
@@ -103,7 +103,7 @@ void ChatWindow::sendToServer(const QString &msg)
 void ChatWindow::slotReadyRead()
 {
     QDataStream in(m_socket);
-    in.setVersion(QDataStream::Qt_6_0);
+    in.setVersion(QDataStream::Qt_5_9);
 
     if(in.status() == QDataStream::Ok)
     {
@@ -165,8 +165,8 @@ void ChatWindow::mousePressEvent(QMouseEvent *e)
 
 void ChatWindow::mouseMoveEvent(QMouseEvent *e)
 {
-    int x = e->position().toPoint().x();
-    int y = e->position().toPoint().y();
+    int x = e->x();
+    int y = e->y();
 
     if (m_mouse_down)
     {
@@ -187,7 +187,7 @@ void ChatWindow::mouseMoveEvent(QMouseEvent *e)
 
         setGeometry(g);
 
-        m_old_pos = QPoint(!left ? e->position().toPoint().x() : m_old_pos.x(), e->position().toPoint().y());
+        m_old_pos = QPoint(!left ? e->x() : m_old_pos.x(), e->y());
     }
     else
     {

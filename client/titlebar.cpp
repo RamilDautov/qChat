@@ -122,7 +122,7 @@ void TitleBar::showMaxRestore()
 
 void TitleBar::mousePressEvent(QMouseEvent *e)
 {
-    startPos = e->globalPosition().toPoint();
+    startPos = e->globalPos();
     clickPos = mapToParent(e->pos());
 
     m_old_pos =  mapToParent(e->pos());
@@ -153,7 +153,7 @@ void TitleBar::mouseMoveEvent(QMouseEvent *e)
 
         if(!left && !right && !top)
         {
-            parentWidget()->move(e->globalPosition().toPoint() - clickPos);
+            parentWidget()->move(e->globalPos() - clickPos);
             return;
         }
 
